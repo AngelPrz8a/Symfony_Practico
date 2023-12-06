@@ -6,11 +6,7 @@
     <h1>
         {{ post.title }}
     </h1>   
-    <p>
-        <strong>{{ post.category.name }}</strong>
-        -
-        {{ post.comments|length }} Comentarios
-    </p> 
+        {% include "page/_info.html.twig" %}    
     <div>
 
         {% include "page/_comment-form.html.twig" %}
@@ -18,6 +14,7 @@
 
         {% for comment in post.comments %}
             <p>
+                <strong>{{ comment.user.name }}</strong>
                 {{ comment.content }}
             </p>
             <hr>
